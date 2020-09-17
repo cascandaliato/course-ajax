@@ -9,6 +9,7 @@
     responseContainer.innerHTML = '';
     searchedForText = searchField.value;
 
+    // image
     const unsplashRequest = new XMLHttpRequest();
 
     unsplashRequest.open(
@@ -35,11 +36,12 @@
     unsplashRequest.setRequestHeader('Authorization', 'Client-ID ---');
     unsplashRequest.send();
 
+    // articles
     function addArticles() {
       let htmlContent = '';
       const data = JSON.parse(this.responseText);
 
-      if (data.response && data.response.dos && data.response.docs.length > 1) {
+      if (data.response && data.response.docs && data.response.docs.length > 1) {
         htmlContent =
           '<ul>' +
           data.response.docs
